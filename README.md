@@ -6,7 +6,14 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## Running the application in dev mode
 
-You can run your application in dev mode that enables live coding using:
+The first step is to start the tracing system to collect and display the captured traces:
+```shell script
+docker run -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 -p 14250:14250 jaegertracing/all-in-one:latest
+```
+
+Then, browse [http://localhost:16686/](http://localhost:16686/).
+
+Finally, you can run your application in dev mode that enables live coding using:
 ```shell script
 ./mvnw compile quarkus:dev
 ```
